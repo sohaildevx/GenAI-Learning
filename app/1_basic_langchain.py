@@ -8,6 +8,26 @@ from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(model="gpt-4o");
 
-result = llm.invoke("Who is pm of india ?");
+# prompt = [
+#     ("system","You are a senior python developer."),
+#     ("user", "Write a pyhon code to sort the array with explanation")
+# ]
 
-print(result.content)
+# result = llm.invoke(prompt);
+
+# print(result.content)
+
+
+# Langchain model - Gemini
+
+from langchain_google_genai import GoogleGenerativeAI
+
+gemini_llm = GoogleGenerativeAI(model="gemini-3.7-flash")
+
+prompt = [
+    ("system","You are a senior Full stack developer."),
+    ("user", "Write a pyhon code to sort the array with explanation")
+]
+
+result = gemini_llm.invoke(prompt);
+print(result);
