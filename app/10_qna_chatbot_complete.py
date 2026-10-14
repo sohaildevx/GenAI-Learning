@@ -41,10 +41,6 @@ if query:
     st.chat_message("user").markdown(query)
     st.session_state.history.append({"role":"user","content":query})
 
-    # if query.lower() not in ["bye","exit","end"]:
-    #   st.chat_message("ai").markdown("GoodBye")
-    #   break
-
     response = agent.stream(
         {"messages": [{"role": "user", "content": query}]},
         {"configurable": {"thread_id": "1"}},
