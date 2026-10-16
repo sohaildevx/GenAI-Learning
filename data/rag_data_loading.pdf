@@ -1,0 +1,115 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 7 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 2285 >>
+stream
+BT
+/F1 10 Tf
+54 738 Td
+14 TL
+(RAG Data Loading - Beginner Notes) '
+() '
+(RAG means Retrieval-Augmented Generation. It lets an application retrieve) '
+(relevant information from its own documents and provide that information to a) '
+(language model before asking the model to answer a question.) '
+() '
+(The data-loading stage is the first step in a typical RAG pipeline:) '
+() '
+(1. Choose source files) '
+(   Sources can be TXT, PDF, HTML, CSV, Word documents, web pages, or database) '
+(   records. In this lesson, this TXT file is the source document.) '
+() '
+(2. Load the documents) '
+(   A document loader reads a source file and converts it into a document) '
+(   object. A LangChain TextLoader can read a plain-text file:) '
+() '
+(       from langchain_community.document_loaders import TextLoader) '
+() '
+(       loader = TextLoader\("data/rag_data_loading.txt", encoding="utf-8"\)) '
+(       documents = loader.load\(\)) '
+() '
+(   The result is usually a list of Document objects. Each object contains:) '
+(   - page_content: the text that was loaded) '
+(   - metadata: information such as the source file path) '
+() '
+(3. Split the text into chunks) '
+(   Large documents are split into smaller, meaningful pieces. Chunking helps) '
+(   retrieval find only the relevant context and helps stay within model limits.) '
+(   A common approach is to use a chunk size with a small overlap so that) '
+(   important sentences are not cut off between chunks.) '
+() '
+(4. Create embeddings) '
+(   Each chunk is converted into a vector, called an embedding. Similar) '
+(   meanings produce vectors that are close to one another.) '
+() '
+(5. Store the vectors) '
+(   The vectors and their text are saved in a vector store. Examples include) '
+(   Chroma, FAISS, and Pinecone.) '
+() '
+(6. Retrieve and generate) '
+(   When a user asks a question, the question is embedded and compared with the) '
+(   stored chunks. The most relevant chunks are added to the prompt, and the) '
+(   language model generates an answer using that context.) '
+() '
+(Important distinction:) '
+(Loading reads the original source. Splitting prepares the loaded text for) '
+(retrieval. Embedding represents chunks as vectors. Retrieval selects useful) '
+(chunks at question time. These are separate stages.) '
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 7 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 769 >>
+stream
+BT
+/F1 10 Tf
+54 738 Td
+14 TL
+() '
+(Good loading practices:) '
+(- Use the correct file encoding, usually UTF-8.) '
+(- Keep the original source in metadata for citations and debugging.) '
+(- Check that the loader actually returns documents before continuing.) '
+(- Remove accidental secrets or private data before indexing files.) '
+(- Use clear headings and complete sentences when creating source documents.) '
+() '
+(Practice questions:) '
+(- What is the difference between loading and chunking?) '
+(- Why does a RAG system need metadata?) '
+(- What could happen if the source document is much larger than the model) '
+(  context window?) '
+(- Which parts of the pipeline happen once during indexing, and which part) '
+(  happens each time a user asks a question?) '
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000127 00000 n 
+0000000253 00000 n 
+0000002590 00000 n 
+0000002716 00000 n 
+0000003536 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+3606
+%%EOF
